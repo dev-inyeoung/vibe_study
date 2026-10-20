@@ -48,7 +48,7 @@
       const list = products.filter(function (p) { return activeSub === '전체' || p.sub === activeSub; });
       gridEl.innerHTML = list.map(function (p) {
         return '<button type="button" class="card" data-id="' + p.id + '">' +
-          '<div class="card__thumb" style="background:' + p.bg + '">' +
+          '<div class="card__thumb" style="--thumb:' + p.bg + '">' +
             Shop.renderIllust(p) +
             (p.tag ? '<span class="card__tag">' + p.tag + '</span>' : '') +
           '</div>' +
@@ -75,7 +75,7 @@
       sheet.innerHTML =
         '<div class="sheet__handle"></div>' +
         '<div class="sheet__body">' +
-          '<div class="sheet__thumb" style="background:' + p.bg + '">' + Shop.renderIllust(p) + '</div>' +
+          '<div class="sheet__thumb" style="--thumb:' + p.bg + '">' + Shop.renderIllust(p) + '</div>' +
           '<p class="sheet__brand">' + p.brand + '</p>' +
           '<h2 class="sheet__name" id="sheet-title">' + p.name + '</h2>' +
           '<p class="sheet__price">' + priceHtml(p) + '</p>' +

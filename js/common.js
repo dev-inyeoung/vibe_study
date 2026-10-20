@@ -125,14 +125,24 @@
       '<header class="header">' +
         '<div class="container header__inner">' +
           '<a class="logo" href="tops.html"><span class="logo__mark">T</span>토스 스토어</a>' +
-          '<a class="cart-btn" href="checkout.html" aria-label="장바구니">' +
-            '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4e5968" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>' +
-            '<span class="cart-btn__badge" data-cart-badge hidden>0</span>' +
-          '</a>' +
+          '<div class="header__actions">' +
+            '<button type="button" class="icon-btn" data-theme-toggle>' +
+              '<svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg>' +
+              '<svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>' +
+            '</button>' +
+            '<a class="cart-btn" href="checkout.html" aria-label="장바구니">' +
+              '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>' +
+              '<span class="cart-btn__badge" data-cart-badge hidden>0</span>' +
+            '</a>' +
+          '</div>' +
         '</div>' +
         (showTabs ? '<nav class="tabs" aria-label="카테고리"><div class="container tabs__list">' + tabs + '</div></nav>' : '') +
       '</header>';
     updateBadge();
+    if (Shop.theme) {
+      Shop.theme.apply(Shop.theme.current());
+      mount.querySelector('[data-theme-toggle]').addEventListener('click', Shop.theme.toggle);
+    }
   }
 
   Shop.Cart = Cart;

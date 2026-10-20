@@ -27,7 +27,7 @@
       linesEl.innerHTML = items.map(function (i) {
         const p = Shop.findProduct(i.id);
         return '<div class="line">' +
-          '<div class="line__thumb" style="background:' + p.bg + '">' + Shop.renderIllust(p) + '</div>' +
+          '<div class="line__thumb" style="--thumb:' + p.bg + '">' + Shop.renderIllust(p) + '</div>' +
           '<div class="line__info">' +
             '<p class="line__name">' + p.name + '</p>' +
             '<p class="line__opt">' + p.brand + ' · 사이즈 ' + i.size + '</p>' +
